@@ -117,3 +117,16 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundEr
 
 ###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
 
+1650347136476	geckodriver	INFO	Listening on 127.0.0.1:55321
+1650347139521	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55322" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofile9zh0Et"
+1650347139859	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofile9zh0Et\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55322/devtools/browser/c022b93e-85e9-4e9a-b10c-1ec22cacef0b
+1650347142086	Marionette	INFO	Listening on port 55347
+Read port: 55347
+1650347142196	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1650347245132	Marionette	INFO	Stopped listening on port 55347
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
