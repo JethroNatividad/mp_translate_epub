@@ -1,6 +1,6 @@
 import express from "express"
 import { saveBook } from "./lib.js"
-import { getLinks } from "./scraper.js"
+import { getContent, getLinks } from "./scraper.js"
 
 const app = express()
 
@@ -13,8 +13,9 @@ app.get("/chapter/:number", async (req, res) => {
     // find chapter
     const chapter = chapters.find(chapter => chapter.text.match(`第${number}章`))
 
-
-    res.json(chapter)
+    // get content
+    const content = await getContent(chapter.href)
+    res.json(content)
 })
 
 app.post("/createBook", (req, res) => {

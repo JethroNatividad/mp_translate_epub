@@ -35,13 +35,14 @@ def get_translation(text):
     input_textarea.clear()
     input_textarea.send_keys(text)
 
-    # wait until textarea with lmt__target_textarea class has no dl_disabled class by using WebDriverWait
+    # wait if lmt__progress_popup is visible
     WebDriverWait(driver, 30).until(
-        EC.invisibility_of_element_located((By.CSS_SELECTOR, "textarea.lmt__target_textarea.dl_disabled")))
+        EC.visibility_of_element_located((By.CSS_SELECTOR, "div.lmt__progress_popup")))
+    # the loading is started, wait until it is finished
+    WebDriverWait(driver, 30).until(
+        EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.lmt__progress_popup")))
 
-    # wait until div with lmt__textarea_dummydiv class has any text by using WebDriverWait
-    # WebDriverWait(driver, 30).until(
-    #     EC.text_to_be_present_in_element((By.CSS_SELECTOR, "#target-dummydiv"), " "))
+    # Loading has ended
 
     output_textarea = driver.find_element(
         by=By.CSS_SELECTOR, value='#target-dummydiv')
@@ -49,7 +50,16 @@ def get_translation(text):
     print("translation is done")
     print(output_textarea.get_attribute("innerHTML"))
 
+    # make a post request to http://localhost:3000/createBook
+    # with the following data:
+    # {
+    # "text": output_textarea.get_attribute("innerHTML"),,
+    # "title": "Mp",
+    # "author": "Momo",
+    # "imageUrl": "",
+    # "publisher": "Jet"
+    # }
+
 
 # loop twice
-get_translation("那半大老者更是身子一闪")
-get_translation("你们与我家伙计为难的时候")
+get_translation()
