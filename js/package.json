@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "type": "module",
@@ -14,6 +15,7 @@
     "cheerio": "^1.0.0-rc.10",
     "epub-gen": "^0.1.0",
     "express": "^4.17.3",
-    "fast-gbk": "^0.0.1"
+    "fast-gbk": "^0.0.1",
+    "nodemon": "^2.0.15"
   }
 }
