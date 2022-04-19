@@ -41,12 +41,14 @@ export const getContent = async (url) => {
     const html = decode(res.data)
     const $ = load(html)
     const nextLink = $('#next')
+    const title = $('#timu').text()
     const content = $('.uu_cont').html()
 
     const text = cleanup(content)
     return {
         content: text,
-        nextLink: `${Url.origin}${nextLink.attr('href')}`
+        nextLink: `${Url.origin}${nextLink.attr('href')}`,
+        title: title
     }
 }
 
