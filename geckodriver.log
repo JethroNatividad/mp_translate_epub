@@ -383,3 +383,13 @@ Read port: 56917
 1650357606170	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
 1650357914472	Marionette	INFO	Stopped listening on port 56917
+1650357917201	geckodriver	INFO	Listening on 127.0.0.1:57135
+1650357920272	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57136" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofileXQpkPF"
+1650357920597	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofileXQpkPF\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57136/devtools/browser/b7518d12-209c-44d7-94fb-632fb0bc8763
+1650357922652	Marionette	INFO	Listening on port 57163
+Read port: 57163
+1650357922725	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1650358402728	Marionette	INFO	Stopped listening on port 57161650358403164	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57551" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofilezCjJNJ"
+1650358403449	Marionette	INFO	Marionette enabled
