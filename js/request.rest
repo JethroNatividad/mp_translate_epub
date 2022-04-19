@@ -3,8 +3,8 @@ Content-Type: application/json
 
 { 
     "text": "HAHAHA", 
-    "title": "HAHAHA", 
+    "title": "he", 
     "author": "HAHAHA", 
-    "imageUrl": "HAHAHA", 
+    "imageUrl": "", 
     "publisher": "HAHAHA"
 }

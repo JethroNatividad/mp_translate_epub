@@ -1,4 +1,5 @@
-const Epub = require("epub-gen")
+import Epub from 'epub-gen'
+
 export function cleanup(html) {
 
     // replace all <br> to \n
@@ -35,7 +36,7 @@ export function cleanup(html) {
     return trim
 }
 
-export async function saveBook({ text, title, author, imageUrl, publisher }) {
+export function saveBook({ text, title, author, imageUrl, publisher }) {
 
     // remove all spaces and symbols from fileName
     const fileName = title.replace(',', '_').replace(/\W+/g, '')
@@ -54,5 +55,5 @@ export async function saveBook({ text, title, author, imageUrl, publisher }) {
         ]
     }
 
-    new Epub(option, `./bin/${fileName}.epub`)
+    new Epub(option, `../bin/${fileName}.epub`)
 }

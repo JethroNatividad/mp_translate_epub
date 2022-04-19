@@ -1,4 +1,5 @@
 import express from "express"
+import { saveBook } from "./lib.js"
 
 const app = express()
 
@@ -8,8 +9,8 @@ app.get("/", (req, res) => {
 })
 
 app.post("/createBook", (req, res) => {
-    const { text, title, author, imageUrl, publisher } = req.body
-    res.send({ text, title, author, imageUrl, publisher })
+    saveBook(req.body)
+    res.send("OK")
 })
 
 app.listen(3000, () => {
