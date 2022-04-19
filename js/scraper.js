@@ -44,11 +44,14 @@ export const getContent = async (url) => {
     const title = $('#timu').text()
     const content = $('.uu_cont').html()
 
+    // extract the text between 第 and 章
+    const chapterNum = title.split('章')[0].split('第')[1]
+
     const text = cleanup(content)
     return {
         content: text,
         nextLink: `${Url.origin}${nextLink.attr('href')}`,
-        title: title
+        title: `MP${chapterNum}`,
     }
 }
 
