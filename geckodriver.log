@@ -492,3 +492,11 @@ Read port: 59653
 1650383674535	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1650383699776	Marionette	INFO	Stopped listening on port 59653
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1650383702460	geckodriver	INFO	Listening on 127.0.0.1:59707
+1650383705527	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59708" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofileEWlQ2w"
+1650383705851	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofileEWlQ2w\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59708/devtools/browser/d5d2e90d-ddf7-4dfe-affd-4e1038ead3a7
+1650383708053	Marionette	INFO	Listening on port 59733
+Read port: 59733
+1650383708170	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
