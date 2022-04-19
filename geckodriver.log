@@ -393,3 +393,9 @@ Read port: 57163
 1650357922725	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1650358402728	Marionette	INFO	Stopped listening on port 57161650358403164	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57551" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofilezCjJNJ"
 1650358403449	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jet\\AppData\\Local\\Temp\\rust_mozprofilezCjJNJ\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57551/devtools/browser/fda4c341-4daf-468f-9bd7-35656b8576ea
+1650358405570	Marionette	INFO	Listening on port 57578
+Read port: 57578
+1650358405632	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
