@@ -1,1 +1,10 @@
-GET http://localhost:3000
+POST http://localhost:3000/createBook
+Content-Type: application/json
+
+{ 
+    "text": "HAHAHA", 
+    "title": "HAHAHA", 
+    "author": "HAHAHA", 
+    "imageUrl": "HAHAHA", 
+    "publisher": "HAHAHA"
+}
