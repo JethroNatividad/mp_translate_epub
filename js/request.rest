@@ -2,7 +2,8 @@ POST http://localhost:3000/createBook
 Content-Type: application/json
 
 { 
-    "text": "HAHAHA", 
+    "text": "Superidol \n xiaorong", 
+    "raw": "娘的踪影 \n 忙了好半天",
     "title": "he", 
     "author": "HAHAHA", 
     "imageUrl": "", 

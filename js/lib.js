@@ -27,19 +27,38 @@ export function cleanup(html) {
 
     const removeAds = replaceTripleDot.replaceAll('(adsbygoogle = window.adsbygoogle || []).push({});', '')
 
-    // remove linebreak if its after a linebreak
-    const removeLineBreak = removeAds.replaceAll('\n\n', '\n')
-
     // remove spaces and linebreaks at the beginning and end of the text
-    const trim = removeLineBreak.trim()
+    const trim = removeAds.trim()
 
     return trim
 }
 
-export function saveBook({ text, title, author, imageUrl, publisher }) {
+export function saveBook({ text, raw, title, author, imageUrl, publisher }) {
 
     // remove all spaces and symbols from fileName
     const fileName = title.replace(',', '_').replace(/\W+/g, '')
+
+    console.log(text)
+    const raws = raw.split('\n')
+    const translated = text.split('\n')
+
+    const combined = []
+
+    for (let i = 0; i < raws.length; i++) {
+        const rawText = raws[i]
+        const translatedText = translated[i]
+        const combinedLine = `<p>${translatedText} <br/> ${rawText}</p>`
+        combined.push(combinedLine)
+    }
+
+    const combinedText = combined.join('\n')
+
+
+    // translated.map(t => `<p>${line} <br/> ${}</p>`)
+
+
+    // wrap every line in <p> tags
+    // const textWithP = text.split('\n').map(line => `<p>${line}</p>`).join('\n')
 
 
     const option = {
@@ -49,7 +68,7 @@ export function saveBook({ text, title, author, imageUrl, publisher }) {
         cover: imageUrl,
         content: [
             {
-                data: text
+                data: combinedText
             }
 
         ]

@@ -59,6 +59,7 @@ def main():
             by=By.CSS_SELECTOR, value='textarea.lmt__source_textarea')
 
         input_textarea.clear()
+        # driver.execute_script(f'arguments[0].value={text}', input_textarea)
         input_textarea.send_keys(text)
 
         # wait if lmt__progress_popup is visible
@@ -73,13 +74,14 @@ def main():
         output_textarea = driver.find_element(
             by=By.CSS_SELECTOR, value='#target-dummydiv')
 
+        translated_text = output_textarea.get_attribute("innerHTML")
         print("translation is done")
-        print(output_textarea.get_attribute("innerHTML"))
 
         # make a post request to http://localhost:3000/createBook
         # with the following data:
 
         requests.post("http://localhost:3000/createBook", json={
+            "raw": text,
             "text": output_textarea.get_attribute("innerHTML"),
             "title": title,
             "author": "Momo",
@@ -98,7 +100,7 @@ def main():
 
         scrape_from_until(None, end - 1, chapter["nextLink"])
 
-    scrape_from_until(1, 3, "")
+    scrape_from_until(1000, 1, "")
 
 
 main()
