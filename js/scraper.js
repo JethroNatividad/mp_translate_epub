@@ -5,13 +5,16 @@ import gbk from 'fast-gbk'
 const { decode } = gbk()
 
 async function getLinks(url) {
+    // get baseUrl of url
+    const Url = new URL(url)
+
     const res = await axios.get(url, { responseType: 'arraybuffer' })
     const html = decode(res.data)
     const $ = load(html)
     const content = $('#chapterList')
     const links = content.find('a').map((i, element) => {
         return {
-            href: $(element).attr('href'),
+            href: `${Url.origin}${$(element).attr('href')}`,
             text: $(element).text()
         }
         // check if text match this pattern "Chapter any number"
