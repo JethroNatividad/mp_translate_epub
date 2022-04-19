@@ -1,10 +1,13 @@
 import axios from 'axios'
 import { load } from 'cheerio'
+import gbk from 'fast-gbk'
+
+const { decode } = gbk()
 
 async function getLinks(url) {
     const res = await axios.get(url, { responseType: 'arraybuffer' })
-
-    const $ = load(res.data)
+    const html = decode(res.data)
+    const $ = load(html)
     const content = $('#chapterList')
     const links = content.find('a').map((i, element) => {
         return {
