@@ -8,3 +8,7 @@ Content-Type: application/json
     "imageUrl": "", 
     "publisher": "HAHAHA"
 }
+
+###
+
+GET http://localhost:3000/chapter/5608

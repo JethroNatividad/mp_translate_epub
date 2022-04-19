@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { load } from 'cheerio'
 import gbk from 'fast-gbk'
-import { cleanup } from './lib'
+import { cleanup } from './lib.js'
 
 const { decode } = gbk()
 
-async function getLinks(url) {
+export async function getLinks(url) {
     // get baseUrl of url
     const Url = new URL(url)
     const res = await axios.get(url, { responseType: 'arraybuffer' })
@@ -35,7 +35,7 @@ async function getLinks(url) {
 // console.log(links)
 
 
-const getContent = async (url) => {
+export const getContent = async (url) => {
     const Url = new URL(url)
     const res = await axios.get(url, { responseType: 'arraybuffer' })
     const html = decode(res.data)
