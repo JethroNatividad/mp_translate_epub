@@ -9,34 +9,43 @@ import sys
 
 
 def get_chapters():
+    print("Fetching all chapters...")
     data = requests.get('http://localhost:3000/chapters')
+    print("Fetching all chapters... Done")
+
     return data.json()
 
 
 def get_chapter(num):
     chapters = get_chapters()
     # find chapter.text contains `第${number}章`
+    print(f"Finding chapter {num}...")
     for chapter in chapters:
         if '第' + str(num) + '章' in chapter['text']:
+            print(f"Chapter {num} found")
             print(chapter)
             return chapter
+    print(f"Chapter {num} not found")
     return None
 
 
 def get_chapter_content(url):
+    print(f"Fetching chapter content from {url}")
     data = requests.get("http://localhost:3000/chapter", json={
         "url": url,
     },)
+    print(f"Fetching chapter content from {url}... Done")
     return data.json()
 
 
 def main():
 
-    start = sys.argv[0]
-    end = sys.argv[1]
+    start = int(sys.argv[1])
+    end = int(sys.argv[2])
 
+    print("Initiating...")
     # check if start and end are numbers
-    if not start.isdigit() or not end.isdigit():
+    if not start or not end:
         print('Arguments start and end must be provided')
         return
 
@@ -65,6 +74,8 @@ def main():
     lang_input_element.click()
 
     def get_translation(text, title):
+        print(f"{title}: Translating...")
+
         input_textarea = driver.find_element(
             by=By.CSS_SELECTOR, value='textarea.lmt__source_textarea')
 
@@ -85,11 +96,11 @@ def main():
             by=By.CSS_SELECTOR, value='#target-dummydiv')
 
         translated_text = output_textarea.get_attribute("innerHTML")
-        print("translation is done")
+        print(f"{title}: Translating Done")
 
         # make a post request to http://localhost:3000/createBook
         # with the following data:
-
+        print(f"{title}: Saving book...")
         requests.post("http://localhost:3000/createBook", json={
             "raw": text,
             "text": output_textarea.get_attribute("innerHTML"),
@@ -98,6 +109,7 @@ def main():
             "imageUrl": "",
             "publisher": "Jet"
         },)
+        print(f"{title}: Done!")
 
     def scrape_from_until(start, end, url):
         if(end == 0):
@@ -106,6 +118,7 @@ def main():
             c = get_chapter(start)
             url = c['href']
         chapter = get_chapter_content(url)
+
         get_translation(chapter["content"], chapter["title"])
 
         scrape_from_until(None, end - 1, chapter["nextLink"])
