@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import requests
+import sys
 
 
 def get_chapters():
@@ -30,6 +31,15 @@ def get_chapter_content(url):
 
 
 def main():
+
+    start = sys.argv[0]
+    end = sys.argv[1]
+
+    # check if start and end are numbers
+    if not start.isdigit() or not end.isdigit():
+        print('Arguments start and end must be provided')
+        return
+
     driver = webdriver.Firefox()
 
     driver.get("https://www.deepl.com/translator")
@@ -100,7 +110,7 @@ def main():
 
         scrape_from_until(None, end - 1, chapter["nextLink"])
 
-    scrape_from_until(1000, 1, "")
+    scrape_from_until(start, end, "")
 
 
 main()
